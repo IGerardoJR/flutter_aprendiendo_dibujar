@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:aprendiendo_dibujar/dibujos/cuadrado_painter.dart';
+import 'package:aprendiendo_dibujar/dibujos/triangulo_painter.dart';
+import 'package:aprendiendo_dibujar/dibujos/rectangulo_painter.dart';
 
 void main(List<String> args) {
   runApp(const MaterialApp(
@@ -15,7 +18,11 @@ class DibujarApp extends StatefulWidget {
 
 class _DibujarAppState extends State<DibujarApp> {
   int indice = 1;
-  List<CustomPainter> _listaDibujos = [CuadradoPainter(), TrianguloPainter()];
+  List<CustomPainter> _listaDibujos = [
+    CuadradoPainter(),
+    TrianguloPainter(),
+    RectanguloPainter()
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,6 +45,7 @@ class _DibujarAppState extends State<DibujarApp> {
               children: [
                 dibujarCuadrado(),
                 dibujarTriangulo(),
+                dibujarRectangulo(),
               ],
             )
           ],
@@ -63,59 +71,16 @@ class _DibujarAppState extends State<DibujarApp> {
                 indice = 1;
               })
             },
-        child: Text('Cuadrado'));
-  }
-}
-
-class CuadradoPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
-    Paint paint = Paint();
-    paint.strokeWidth = 2;
-    paint.color = Colors.black;
-    // canvas.drawLine(Offset.zero, Offset(size.width, size.height), paint);
-
-    // Donde empieza \ Donde termina
-    canvas.drawLine(Offset(20, 50), Offset(size.width - 20, 50), paint); // -
-    canvas.drawLine(Offset(20, 50), Offset(20, size.height - 50), paint); // |
-    canvas.drawLine(Offset(20, size.height - 50),
-        Offset(size.width - 20, size.height - 50), paint); // _
-    canvas.drawLine(Offset(size.width - 20, 50),
-        Offset(size.width - 20, size.height - 50), paint); // |
+        child: Text('Triangulo'));
   }
 
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    return false;
-  }
-}
-
-class TrianguloPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
-    Paint paint = Paint();
-    paint.strokeWidth = 2;
-    paint.color = Colors.black;
-
-    // Inicio(x,y) | Fin(x,y)
-    canvas.drawLine(
-        Offset(size.width / 2, 20), Offset(20, size.height - 100), paint);
-
-    canvas.drawLine(
-        Offset(20, size.height - 100), //  /
-        Offset(size.width - 20, size.height - 100),
-        paint); // _
-
-    canvas.drawLine(Offset(size.width - 20, size.height - 100),
-        Offset(size.width / 2, 20), paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    return false;
+  Widget dibujarRectangulo() {
+    return ElevatedButton(
+        onPressed: () => {
+              setState(() {
+                indice = 2;
+              })
+            },
+        child: Text('Rectangulo'));
   }
 }
