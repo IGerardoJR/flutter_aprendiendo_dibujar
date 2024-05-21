@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:aprendiendo_dibujar/dibujos/cuadrado_painter.dart';
 import 'package:aprendiendo_dibujar/dibujos/triangulo_painter.dart';
 import 'package:aprendiendo_dibujar/dibujos/rectangulo_painter.dart';
+import 'package:aprendiendo_dibujar/dibujos/circulo_painter.dart';
 
 void main(List<String> args) {
   runApp(const MaterialApp(
@@ -21,7 +22,8 @@ class _DibujarAppState extends State<DibujarApp> {
   List<CustomPainter> _listaDibujos = [
     CuadradoPainter(),
     TrianguloPainter(),
-    RectanguloPainter()
+    RectanguloPainter(),
+    CirculoPainter()
   ];
   @override
   Widget build(BuildContext context) {
@@ -46,6 +48,7 @@ class _DibujarAppState extends State<DibujarApp> {
                 dibujarCuadrado(),
                 dibujarTriangulo(),
                 dibujarRectangulo(),
+                dibujarCirculo(),
               ],
             )
           ],
@@ -82,5 +85,15 @@ class _DibujarAppState extends State<DibujarApp> {
               })
             },
         child: Text('Rectangulo'));
+  }
+
+  Widget dibujarCirculo() {
+    return ElevatedButton(
+        onPressed: () => {
+              setState(() {
+                indice = 3;
+              })
+            },
+        child: Text('Circulo'));
   }
 }
