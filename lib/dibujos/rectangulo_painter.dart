@@ -8,6 +8,8 @@ class RectanguloPainter extends CustomPainter {
     paint.strokeWidth = 2;
     paint.color = Colors.black;
 
+    canvas.drawColor(Colors.black, BlendMode.clear);
+
     canvas.drawLine(Offset(60, 20), Offset(size.width - 60, 20), paint); // -
     canvas.drawLine(Offset(60, 20), Offset(60, size.height - 40), paint); // |
     canvas.drawLine(Offset(60, size.height - 40),

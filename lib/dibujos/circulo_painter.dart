@@ -8,8 +8,9 @@ class CirculoPainter extends CustomPainter {
     paint.strokeWidth = 2;
     paint.color = Colors.black;
     paint.style = PaintingStyle.stroke;
+    canvas.drawColor(Colors.black, BlendMode.clear);
 
-    canvas.drawCircle(Offset(size.width / 2, size.height / 2), 40, paint);
+    canvas.drawCircle(Offset(size.width / 2, size.height / 2), 150, paint);
   }
 
   @override

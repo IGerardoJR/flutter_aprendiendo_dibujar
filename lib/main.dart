@@ -3,6 +3,7 @@ import 'package:aprendiendo_dibujar/dibujos/cuadrado_painter.dart';
 import 'package:aprendiendo_dibujar/dibujos/triangulo_painter.dart';
 import 'package:aprendiendo_dibujar/dibujos/rectangulo_painter.dart';
 import 'package:aprendiendo_dibujar/dibujos/circulo_painter.dart';
+import 'package:aprendiendo_dibujar/dibujos/pentagono_painter.dart';
 
 void main(List<String> args) {
   runApp(const MaterialApp(
@@ -23,7 +24,8 @@ class _DibujarAppState extends State<DibujarApp> {
     CuadradoPainter(),
     TrianguloPainter(),
     RectanguloPainter(),
-    CirculoPainter()
+    CirculoPainter(),
+    PentagonoPainter(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,7 @@ class _DibujarAppState extends State<DibujarApp> {
                 dibujarTriangulo(),
                 dibujarRectangulo(),
                 dibujarCirculo(),
+                dibujarPentagono(),
               ],
             )
           ],
@@ -95,5 +98,15 @@ class _DibujarAppState extends State<DibujarApp> {
               })
             },
         child: Text('Circulo'));
+  }
+
+  dibujarPentagono() {
+    return ElevatedButton(
+        onPressed: () => {
+              setState(() {
+                indice = 4;
+              })
+            },
+        child: Text('Pentagono'));
   }
 }

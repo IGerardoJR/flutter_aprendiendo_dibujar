@@ -7,6 +7,7 @@ class TrianguloPainter extends CustomPainter {
     Paint paint = Paint();
     paint.strokeWidth = 2;
     paint.color = Colors.black;
+    canvas.drawColor(Colors.black, BlendMode.clear);
 
     // Inicio(x,y) | Fin(x,y)
     canvas.drawLine(

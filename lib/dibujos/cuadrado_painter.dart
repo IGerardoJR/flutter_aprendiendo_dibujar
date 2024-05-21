@@ -7,6 +7,8 @@ class CuadradoPainter extends CustomPainter {
     Paint paint = Paint();
     paint.strokeWidth = 2;
     paint.color = Colors.black;
+    canvas.drawColor(Colors.black, BlendMode.clear);
+
     // canvas.drawLine(Offset.zero, Offset(size.width, size.height), paint);
 
     // Donde empieza \ Donde termina
